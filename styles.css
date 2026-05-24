@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
@@ -20,17 +19,19 @@ body {
     color: var(--rosa-claro); 
     font-family: 'Montserrat', sans-serif; 
     min-height: 100vh; 
+    width: 100%;
     overflow-x: hidden; 
     line-height: 1.8; 
     position: relative;
+    scroll-behavior: smooth; /* 🔑 scroll suave */
 }
 
 .luna {
     position: absolute;
     top: 5%;
     right: 10%;
-    width: 80px;
-    height: 80px;
+    width: 10vw; /* 🔑 escala automática */
+    height: 10vw;
     border-radius: 50%;
     background: radial-gradient(circle, #fff8e5 10%, #ffeb3b 60%);
     box-shadow: 0 0 30px #ffeb3b, 0 0 60px rgba(255, 235, 59, 0.4);
@@ -60,21 +61,20 @@ body {
 }
 
 .carta { 
-    max-width: 800px; 
-    width: 90%; 
+    width: 100%; 
     margin: 0 auto; 
-    padding: 4rem 2rem; 
+    padding: 0; 
     position: relative; 
 }
 
 .seccion { 
-    min-height: 100vh; 
+    height: 100vh; /* 🔑 ocupa toda la pantalla */
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
     text-align: center; 
-    padding: 3rem 0; 
+    padding: 2rem; 
     opacity: 0; 
     transform: translateY(30px); 
     transition: opacity 0.8s ease, transform 0.8s ease; 
@@ -87,51 +87,37 @@ body {
 
 .titulo { 
     font-family: 'Playfair Display', serif; 
-    font-size: clamp(2.5rem, 5vw, 3.5rem); 
+    font-size: clamp(2rem, 8vw, 4rem); 
     color: var(--rosa); 
-    margin-bottom: 2rem; 
-    position: relative; 
-    display: inline-block; 
+    margin-bottom: 1.5rem; 
     text-shadow: 0 0 10px rgba(231, 84, 128, 0.5);
 }
 
-.titulo::after { 
-    content: ''; 
-    position: absolute; 
-    bottom: -10px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 50%; 
-    height: 2px; 
-    background: linear-gradient(90deg, transparent, var(--rosa-profundo), transparent); 
-}
-
 .mensaje { 
-    font-size: clamp(1.1rem, 3vw, 1.2rem); 
-    max-width: 600px; 
-    margin: 0 auto 2rem; 
+    font-size: clamp(1.2rem, 5vw, 2rem); 
+    width: 90%; 
+    margin: 0 auto 1.5rem; 
     color: var(--rosa-claro); 
 }
 
 .poema {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
     line-height: 2;
-    margin: 2rem 0;
-    padding: 1.5rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
     border-radius: 10px;
     background: rgba(255, 182, 193, 0.1);
     border: 1px solid var(--borde);
-    position: relative;
-    max-width: 500px;
+    width: 90%;
 }
 
 .imagen {
-    width: 100%; 
-    max-width: 300px; 
+    width: 90%; 
+    max-width: 100%; 
     height: auto; 
     border-radius: 10px; 
-    margin: 2rem auto; 
+    margin: 1.5rem auto; 
     border: 1px solid var(--borde); 
     box-shadow: 0 10px 30px rgba(231, 84, 128, 0.2); 
     transition: transform 0.5s ease; 
@@ -142,8 +128,8 @@ body {
 }
 
 .corazon { 
-    font-size: 2.5rem; 
-    margin: 1.5rem 0; 
+    font-size: clamp(2rem, 8vw, 4rem); 
+    margin: 1rem 0; 
     color: var(--rosa-profundo); 
     animation: latido 1.5s infinite; 
     text-shadow: 0 0 15px rgba(231, 84, 128, 0.6);
@@ -155,43 +141,24 @@ body {
     100% { transform: scale(1); }
 }
 
-.flotantes { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    pointer-events: none; 
-    z-index: -1; 
-}
-
-.petalo { 
-    position: absolute; 
-    font-size: 1.2rem; 
-    opacity: 0; 
-    animation: caer 8s linear forwards; 
-}
-
-@keyframes caer { 
-    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.8; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-}
-
 .final { 
     background: rgba(255, 182, 193, 0.05); 
     border: 1px solid var(--borde); 
     border-radius: 15px; 
-    padding: 3rem; 
+    padding: 2rem; 
     backdrop-filter: blur(5px); 
-    margin: 3rem auto; 
-    max-width: 600px; 
+    margin: 0 auto; 
+    width: 95%; 
     box-shadow: 0 10px 30px rgba(231, 84, 128, 0.1); 
+    height: 100vh; /* 🔑 también ocupa toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .firma { 
     font-family: 'Dancing Script', cursive; 
-    font-size: 2rem; 
+    font-size: clamp(2rem, 6vw, 3rem); 
     color: var(--violeta); 
     margin-top: 2rem; 
     text-align: right;
@@ -201,8 +168,8 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: var(--rosa-profundo);
     color: white;
@@ -213,10 +180,38 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    font-size: 1.5rem;
+}
+
+.btn-audio.activo {
+    animation: latido 1.5s infinite;
+}
+
+.flotantes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.petalo { 
+    position: absolute; 
+    opacity: 0; 
+    animation: caer 8s linear forwards; 
+}
+
+@keyframes caer { 
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
 }
 
 @media (max-width: 768px) { 
-    .carta { padding: 2rem 1rem; }
-    .poema { font-size: 1.3rem; padding: 1rem; }
-    .luna { width: 60px; height: 60px; right: 5%; }
+    .seccion { padding: 1rem; }
+    .poema { font-size: clamp(1.3rem, 5vw, 2rem); }
+    .luna { width: 15vw; height: 15vw; right: 5%; }
 }
